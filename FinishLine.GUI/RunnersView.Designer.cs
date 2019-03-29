@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.dataGridView_Runners = new System.Windows.Forms.DataGridView();
-            this.btn_Runners_Add = new System.Windows.Forms.Button();
-            this.btn_Runners_Delete = new System.Windows.Forms.Button();
-            this.btn_Runners_Modify = new System.Windows.Forms.Button();
-            this.btn_Runners_Close = new System.Windows.Forms.Button();
             this.Column_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_Runners_Add = new System.Windows.Forms.Button();
+            this.btn_Runners_Delete = new System.Windows.Forms.Button();
+            this.btn_Runners_Modify = new System.Windows.Forms.Button();
+            this.btn_Runners_Close = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Runners)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,47 +56,12 @@
             this.Column_Age,
             this.Column_Gender});
             this.dataGridView_Runners.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView_Runners.MultiSelect = false;
             this.dataGridView_Runners.Name = "dataGridView_Runners";
             this.dataGridView_Runners.RowHeadersVisible = false;
+            this.dataGridView_Runners.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Runners.Size = new System.Drawing.Size(472, 514);
             this.dataGridView_Runners.TabIndex = 0;
-            // 
-            // btn_Runners_Add
-            // 
-            this.btn_Runners_Add.Location = new System.Drawing.Point(490, 12);
-            this.btn_Runners_Add.Name = "btn_Runners_Add";
-            this.btn_Runners_Add.Size = new System.Drawing.Size(134, 23);
-            this.btn_Runners_Add.TabIndex = 1;
-            this.btn_Runners_Add.Text = "Add Runner";
-            this.btn_Runners_Add.UseVisualStyleBackColor = true;
-            this.btn_Runners_Add.Click += new System.EventHandler(this.btn_Runners_Add_Click);
-            // 
-            // btn_Runners_Delete
-            // 
-            this.btn_Runners_Delete.Location = new System.Drawing.Point(490, 41);
-            this.btn_Runners_Delete.Name = "btn_Runners_Delete";
-            this.btn_Runners_Delete.Size = new System.Drawing.Size(134, 23);
-            this.btn_Runners_Delete.TabIndex = 2;
-            this.btn_Runners_Delete.Text = "Delete Runner";
-            this.btn_Runners_Delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_Runners_Modify
-            // 
-            this.btn_Runners_Modify.Location = new System.Drawing.Point(490, 70);
-            this.btn_Runners_Modify.Name = "btn_Runners_Modify";
-            this.btn_Runners_Modify.Size = new System.Drawing.Size(134, 23);
-            this.btn_Runners_Modify.TabIndex = 3;
-            this.btn_Runners_Modify.Text = "Modify Runner";
-            this.btn_Runners_Modify.UseVisualStyleBackColor = true;
-            // 
-            // btn_Runners_Close
-            // 
-            this.btn_Runners_Close.Location = new System.Drawing.Point(549, 503);
-            this.btn_Runners_Close.Name = "btn_Runners_Close";
-            this.btn_Runners_Close.Size = new System.Drawing.Size(75, 23);
-            this.btn_Runners_Close.TabIndex = 4;
-            this.btn_Runners_Close.Text = "Close";
-            this.btn_Runners_Close.UseVisualStyleBackColor = true;
             // 
             // Column_ID
             // 
@@ -131,6 +96,45 @@
             this.Column_Gender.HeaderText = "Gender";
             this.Column_Gender.Name = "Column_Gender";
             this.Column_Gender.ReadOnly = true;
+            // 
+            // btn_Runners_Add
+            // 
+            this.btn_Runners_Add.Location = new System.Drawing.Point(490, 12);
+            this.btn_Runners_Add.Name = "btn_Runners_Add";
+            this.btn_Runners_Add.Size = new System.Drawing.Size(134, 23);
+            this.btn_Runners_Add.TabIndex = 1;
+            this.btn_Runners_Add.Text = "Add Runner";
+            this.btn_Runners_Add.UseVisualStyleBackColor = true;
+            this.btn_Runners_Add.Click += new System.EventHandler(this.btn_Runners_Add_Click);
+            // 
+            // btn_Runners_Delete
+            // 
+            this.btn_Runners_Delete.Location = new System.Drawing.Point(490, 41);
+            this.btn_Runners_Delete.Name = "btn_Runners_Delete";
+            this.btn_Runners_Delete.Size = new System.Drawing.Size(134, 23);
+            this.btn_Runners_Delete.TabIndex = 2;
+            this.btn_Runners_Delete.Text = "Delete Runner";
+            this.btn_Runners_Delete.UseVisualStyleBackColor = true;
+            this.btn_Runners_Delete.Click += new System.EventHandler(this.btn_Runners_Delete_Click);
+            // 
+            // btn_Runners_Modify
+            // 
+            this.btn_Runners_Modify.Location = new System.Drawing.Point(490, 70);
+            this.btn_Runners_Modify.Name = "btn_Runners_Modify";
+            this.btn_Runners_Modify.Size = new System.Drawing.Size(134, 23);
+            this.btn_Runners_Modify.TabIndex = 3;
+            this.btn_Runners_Modify.Text = "Modify Runner";
+            this.btn_Runners_Modify.UseVisualStyleBackColor = true;
+            // 
+            // btn_Runners_Close
+            // 
+            this.btn_Runners_Close.Location = new System.Drawing.Point(549, 503);
+            this.btn_Runners_Close.Name = "btn_Runners_Close";
+            this.btn_Runners_Close.Size = new System.Drawing.Size(75, 23);
+            this.btn_Runners_Close.TabIndex = 4;
+            this.btn_Runners_Close.Text = "Close";
+            this.btn_Runners_Close.UseVisualStyleBackColor = true;
+            this.btn_Runners_Close.Click += new System.EventHandler(this.btn_Runners_Close_Click);
             // 
             // RunnersView
             // 

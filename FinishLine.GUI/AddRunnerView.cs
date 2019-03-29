@@ -29,7 +29,13 @@ namespace FinishLine
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            Race.Runners.Add(new Runner() {ID= int.Parse(tBox_ID.Text),Name = tBox_Name.Text,Country = cBox_Country.SelectedValue.ToString(),Age = int.Parse(tBox_Age.Text),Gender = GetGender() });
+            //Race.Runners.Add(new Runner() {ID= int.Parse(tBox_ID.Text),Name = tBox_Name.Text,Country = cBox_Country.SelectedValue.ToString(),Age = int.Parse(tBox_Age.Text),Gender = GetGender() });
+            Race.Runners.Add
+                (
+                key: int.Parse(tBox_ID.Text), 
+                value: new Runner() { ID = int.Parse(tBox_ID.Text), Name = tBox_Name.Text, Country = cBox_Country.SelectedValue.ToString(),
+                    Age = int.Parse(tBox_Age.Text), Gender = GetGender() }
+                );
             this.Close();
         }
 

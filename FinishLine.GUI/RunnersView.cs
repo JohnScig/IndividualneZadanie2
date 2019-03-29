@@ -29,10 +29,21 @@ namespace FinishLine
         public void DisplayRunners()
         {
             dataGridView_Runners.Rows.Clear();
-            foreach (Runner person in Race.Runners)
+            foreach (Runner person in Race.Runners.Values)
             {
                 dataGridView_Runners.Rows.Add(person.ID, person.Name, person.Country, person.Age, person.Gender);
             }
+        }
+
+        private void btn_Runners_Delete_Click(object sender, EventArgs e)
+        {
+            Race.Runners.Remove(int.Parse(dataGridView_Runners.SelectedRows[0].Cells[0].Value.ToString()));
+            DisplayRunners();
+        }
+
+        private void btn_Runners_Close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

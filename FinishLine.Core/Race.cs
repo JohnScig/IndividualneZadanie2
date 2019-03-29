@@ -8,18 +8,30 @@ namespace FinishLine.Core
 {
     public static class Race
     {
-        public static List<Runner> Runners { get; set; } = new List<Runner>() { new Runner() { ID = 12, Name = "John Doe", Age = 25, Gender = "Male", Country = "SK" } };
+        public static Dictionary<int, Runner> Runners { get; set; } = new Dictionary<int, Runner>();
+        //{ new Runner[ID] { ID = 12, Name = "John Doe", Age = 25, Gender = "Male", Country = "SK" }
+
 
         public static bool CheckID(int id)
         {
-            foreach (Runner runner in Runners)
+            if ((Runners.ContainsKey(id)))
             {
-                if (runner.ID == id)
-                {
-                    return false;
-                }
+                return false;
             }
-            return true;
+            else
+            {
+                return true;
+            }
+
+
+            //foreach (Runner runner in Runners)
+            //{
+            //    if (runner.ID == id)
+            //    {
+            //        return false;
+            //    }
+            //}
+            //return true;
         }
 
     }
