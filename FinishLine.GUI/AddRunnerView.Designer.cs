@@ -32,7 +32,6 @@
             this.lbl_Name = new System.Windows.Forms.Label();
             this.lbl_Country = new System.Windows.Forms.Label();
             this.lbl_Age = new System.Windows.Forms.Label();
-            this.tBox_Age = new System.Windows.Forms.TextBox();
             this.cBox_Country = new System.Windows.Forms.ComboBox();
             this.gBox_Gender = new System.Windows.Forms.GroupBox();
             this.rBtn_Other = new System.Windows.Forms.RadioButton();
@@ -41,8 +40,11 @@
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.lbl_ID = new System.Windows.Forms.Label();
-            this.tBox_ID = new System.Windows.Forms.TextBox();
+            this.numeric_Age = new System.Windows.Forms.NumericUpDown();
+            this.numeric_ID = new System.Windows.Forms.NumericUpDown();
             this.gBox_Gender.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_Age)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_ID)).BeginInit();
             this.SuspendLayout();
             // 
             // tBox_Name
@@ -78,15 +80,6 @@
             this.lbl_Age.TabIndex = 5;
             this.lbl_Age.Text = "Age";
             this.lbl_Age.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tBox_Age
-            // 
-            this.tBox_Age.Location = new System.Drawing.Point(106, 64);
-            this.tBox_Age.Name = "tBox_Age";
-            this.tBox_Age.Size = new System.Drawing.Size(267, 20);
-            this.tBox_Age.TabIndex = 4;
-            this.tBox_Age.Text = "35";
-            this.tBox_Age.Leave += new System.EventHandler(this.tBox_Age_Leave);
             // 
             // cBox_Country
             // 
@@ -170,27 +163,64 @@
             this.lbl_ID.Text = "ID";
             this.lbl_ID.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tBox_ID
+            // numeric_Age
             // 
-            this.tBox_ID.Location = new System.Drawing.Point(106, 147);
-            this.tBox_ID.Name = "tBox_ID";
-            this.tBox_ID.Size = new System.Drawing.Size(267, 20);
-            this.tBox_ID.TabIndex = 12;
-            this.tBox_ID.Leave += new System.EventHandler(this.tBox_ID_Leave);
+            this.numeric_Age.Location = new System.Drawing.Point(106, 66);
+            this.numeric_Age.Maximum = new decimal(new int[] {
+            117,
+            0,
+            0,
+            0});
+            this.numeric_Age.Minimum = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            this.numeric_Age.Name = "numeric_Age";
+            this.numeric_Age.Size = new System.Drawing.Size(267, 20);
+            this.numeric_Age.TabIndex = 14;
+            this.numeric_Age.Value = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            // 
+            // numeric_ID
+            // 
+            this.numeric_ID.Location = new System.Drawing.Point(106, 149);
+            this.numeric_ID.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.numeric_ID.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numeric_ID.Name = "numeric_ID";
+            this.numeric_ID.Size = new System.Drawing.Size(267, 20);
+            this.numeric_ID.TabIndex = 15;
+            this.numeric_ID.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numeric_ID.ValueChanged += new System.EventHandler(this.numeric_ID_ValueChanged);
             // 
             // AddRunnerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 261);
+            this.Controls.Add(this.numeric_ID);
+            this.Controls.Add(this.numeric_Age);
             this.Controls.Add(this.lbl_ID);
-            this.Controls.Add(this.tBox_ID);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_OK);
             this.Controls.Add(this.gBox_Gender);
             this.Controls.Add(this.cBox_Country);
             this.Controls.Add(this.lbl_Age);
-            this.Controls.Add(this.tBox_Age);
             this.Controls.Add(this.lbl_Country);
             this.Controls.Add(this.lbl_Name);
             this.Controls.Add(this.tBox_Name);
@@ -198,6 +228,8 @@
             this.Text = "Add a Runner";
             this.gBox_Gender.ResumeLayout(false);
             this.gBox_Gender.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_Age)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_ID)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,7 +241,6 @@
         private System.Windows.Forms.Label lbl_Name;
         private System.Windows.Forms.Label lbl_Country;
         private System.Windows.Forms.Label lbl_Age;
-        private System.Windows.Forms.TextBox tBox_Age;
         private System.Windows.Forms.ComboBox cBox_Country;
         private System.Windows.Forms.GroupBox gBox_Gender;
         private System.Windows.Forms.RadioButton rBtn_Other;
@@ -218,6 +249,7 @@
         private System.Windows.Forms.Button btn_OK;
         private System.Windows.Forms.Button btn_Cancel;
         private System.Windows.Forms.Label lbl_ID;
-        private System.Windows.Forms.TextBox tBox_ID;
+        private System.Windows.Forms.NumericUpDown numeric_Age;
+        private System.Windows.Forms.NumericUpDown numeric_ID;
     }
 }
