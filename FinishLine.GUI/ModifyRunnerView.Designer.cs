@@ -114,6 +114,7 @@
             this.tBox_Age.Size = new System.Drawing.Size(267, 20);
             this.tBox_Age.TabIndex = 17;
             this.tBox_Age.Text = "35";
+            this.tBox_Age.Leave += new System.EventHandler(this.tBox_Age_Leave_1);
             // 
             // lbl_Country
             // 
@@ -155,6 +156,7 @@
             this.tBox_ID.Name = "tBox_ID";
             this.tBox_ID.Size = new System.Drawing.Size(267, 20);
             this.tBox_ID.TabIndex = 23;
+            this.tBox_ID.Leave += new System.EventHandler(this.tBox_ID_Leave_1);
             // 
             // btn_Cancel
             // 

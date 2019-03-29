@@ -66,7 +66,7 @@ namespace FinishLine
             else
             {
                 MessageBox.Show("Wrong input. Set to empty");
-                tBox_ID.Text = string.Empty;
+                GetSomeID();
             }
 
         }

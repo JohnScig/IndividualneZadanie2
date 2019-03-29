@@ -27,7 +27,7 @@ namespace FinishLine
 
         }
 
-        Runner runnerToChange = new Runner();
+        private Runner runnerToChange = new Runner();
 
         private void LoadRunnerData(Runner r)
         {
@@ -55,27 +55,6 @@ namespace FinishLine
             cBox_Country.ValueMember = nameof(Country.Code).ToString();
         }
 
-
-        private void tBox_ID_Leave(object sender, EventArgs e)
-        {
-            int correctID;
-            if (int.TryParse(tBox_ID.Text, out correctID))
-            {
-                while (!Race.CheckID(correctID))
-                {
-                    MessageBox.Show("ID already in use, checking next number");
-                    Race.CheckID(++correctID);
-                }
-                tBox_ID.Text = correctID.ToString();
-            }
-            else
-            {
-                MessageBox.Show("Wrong input. Set to empty");
-                tBox_ID.Text = string.Empty;
-            }
-
-        }
-
         private string GetGender()
         {
             if (rBtn_Female.Checked)
@@ -88,28 +67,6 @@ namespace FinishLine
             }
 
             return "Other";
-        }
-
-        private void tBox_Age_Leave(object sender, EventArgs e)
-        {
-            int correctAge;
-            if (int.TryParse(tBox_Age.Text, out correctAge))
-            {
-                if (correctAge < 120 && correctAge > 12)
-                {
-                    tBox_Age.Text = correctAge.ToString();
-                }
-                else
-                {
-                    MessageBox.Show("Wrong input. Set to 35");
-                    tBox_Age.Text = "35";
-                }
-            }
-            else
-            {
-                MessageBox.Show("Wrong input. Set to 35");
-                tBox_Age.Text = "35";
-            }
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -132,6 +89,58 @@ namespace FinishLine
                     Gender = GetGender()
                      });
             this.Close();
+        }
+
+        private void tBox_ID_Leave_1(object sender, EventArgs e)
+        {
+            int correctID;
+            if (int.TryParse(tBox_ID.Text, out correctID))
+            {
+                while (!Race.CheckID(correctID))
+                {
+                    MessageBox.Show("ID already in use, checking next number");
+                    Race.CheckID(++correctID);
+                }
+                tBox_ID.Text = correctID.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Wrong input. Set to empty");
+                GetSomeID();
+            }
+        }
+
+        private void tBox_Age_Leave_1(object sender, EventArgs e)
+        {
+            int correctAge;
+            if (int.TryParse(tBox_Age.Text, out correctAge))
+            {
+                if (correctAge < 120 && correctAge > 12)
+                {
+                    tBox_Age.Text = correctAge.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong input. Set to 35");
+                    tBox_Age.Text = "35";
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wrong input. Set to 35");
+                tBox_Age.Text = "35";
+            }
+        }
+
+        private void GetSomeID()
+        {
+            int someID = 1;
+            while (!Race.CheckID(someID))
+            {
+                //MessageBox.Show("ID already in use, checking next number");
+                Race.CheckID(++someID);
+            }
+            tBox_ID.Text = someID.ToString();
         }
     }
 }
