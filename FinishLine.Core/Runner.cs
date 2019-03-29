@@ -16,7 +16,14 @@ namespace FinishLine.Core
 
         public int Laps { get; set; }
 
-
+        public void ModifyRunner (string name, string country, int age, string gender, int id)
+        {
+            Name = name;
+            Country = country;
+            Age = age;
+            Gender = gender;
+            ID = id;
+        }
         
 
     }

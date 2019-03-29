@@ -125,6 +125,7 @@
             this.btn_Runners_Modify.TabIndex = 3;
             this.btn_Runners_Modify.Text = "Modify Runner";
             this.btn_Runners_Modify.UseVisualStyleBackColor = true;
+            this.btn_Runners_Modify.Click += new System.EventHandler(this.btn_Runners_Modify_Click);
             // 
             // btn_Runners_Close
             // 

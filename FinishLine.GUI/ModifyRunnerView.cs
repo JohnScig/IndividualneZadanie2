@@ -11,13 +11,40 @@ using System.Windows.Forms;
 
 namespace FinishLine
 {
-    public partial class AddRunnerView : Form
+    public partial class ModifyRunnerView : Form
     {
-        public AddRunnerView()
+        public ModifyRunnerView()
+        {
+            InitializeComponent();
+        }
+
+        public ModifyRunnerView(Runner r)
         {
             InitializeComponent();
             LoadComboBox();
-            GetSomeID();
+            runnerToChange = r;
+            LoadRunnerData(r);
+
+        }
+
+        Runner runnerToChange = new Runner();
+
+        private void LoadRunnerData(Runner r)
+        {
+            tBox_Name.Text = r.Name;
+            tBox_Age.Text = r.Age.ToString();
+            tBox_ID.Text = r.ID.ToString();
+
+            if (r.Gender == "Female")
+            {
+                rBtn_Female.Checked = true;
+            }
+            if (r.Gender == "Other")
+            {
+                rBtn_Other.Checked = true;
+            }
+
+            cBox_Country.SelectedValue = r.Country;
 
         }
 
@@ -28,28 +55,6 @@ namespace FinishLine
             cBox_Country.ValueMember = nameof(Country.Code).ToString();
         }
 
-        private void btn_OK_Click(object sender, EventArgs e)
-        {
-            //Race.Runners.Add(new Runner() {ID= int.Parse(tBox_ID.Text),Name = tBox_Name.Text,Country = cBox_Country.SelectedValue.ToString(),Age = int.Parse(tBox_Age.Text),Gender = GetGender() });
-            Race.Runners.Add
-                (
-                key: int.Parse(tBox_ID.Text), 
-                value: new Runner() { ID = int.Parse(tBox_ID.Text), Name = tBox_Name.Text, Country = cBox_Country.SelectedValue.ToString(),
-                    Age = int.Parse(tBox_Age.Text), Gender = GetGender() }
-                );
-            this.Close();
-        }
-
-        private void GetSomeID()
-        {
-            int someID=1;
-            while (!Race.CheckID(someID))
-            {
-                //MessageBox.Show("ID already in use, checking next number");
-                Race.CheckID(++someID);
-            }
-            tBox_ID.Text = someID.ToString();
-        }
 
         private void tBox_ID_Leave(object sender, EventArgs e)
         {
@@ -109,6 +114,23 @@ namespace FinishLine
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void btn_OK_Click(object sender, EventArgs e)
+        {
+
+            Race.Runners.Remove(runnerToChange.ID);
+            Race.Runners.Add(
+            key: int.Parse(tBox_ID.Text),
+            value: new Runner()
+                    {
+                    ID = int.Parse(tBox_ID.Text),
+                    Name = tBox_Name.Text,
+                    Country = cBox_Country.SelectedValue.ToString(),
+                    Age = int.Parse(tBox_Age.Text),
+                    Gender = GetGender()
+                     });
             this.Close();
         }
     }

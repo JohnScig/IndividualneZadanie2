@@ -58,6 +58,12 @@
     <Compile Include="MainView.Designer.cs">
       <DependentUpon>MainView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ModifyRunnerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifyRunnerView.Designer.cs">
+      <DependentUpon>ModifyRunnerView.cs</DependentUpon>
+    </Compile>
     <Compile Include="RunnersView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyRunnerView.resx">
+      <DependentUpon>ModifyRunnerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
