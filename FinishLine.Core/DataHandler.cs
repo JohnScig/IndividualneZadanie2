@@ -10,6 +10,8 @@ namespace FinishLine.Core
 {
     public static class DataHandler
     {
+        
+
         public static List<Country> LoadCountries(string filepath)
         {
             List<Country> countries = new List<Country>();

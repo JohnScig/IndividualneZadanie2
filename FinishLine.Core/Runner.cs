@@ -16,5 +16,8 @@ namespace FinishLine.Core
 
         public int Laps { get; set; }
 
+
+        
+
     }
 }

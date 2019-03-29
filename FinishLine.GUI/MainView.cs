@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinishLine.Core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,12 +19,12 @@ namespace FinishLine
             
         }
 
-        Runners runners = new Runners();
+        RunnersView runnersView = new RunnersView();
 
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            runners.ShowDialog();
+            runnersView.ShowDialog();
         }
     }
 }

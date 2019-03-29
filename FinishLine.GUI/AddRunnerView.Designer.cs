@@ -1,6 +1,6 @@
 ﻿namespace FinishLine
 {
-    partial class AddRunner
+    partial class AddRunnerView
     {
         /// <summary>
         /// Required designer variable.
@@ -35,9 +35,9 @@
             this.tBox_Age = new System.Windows.Forms.TextBox();
             this.cBox_Country = new System.Windows.Forms.ComboBox();
             this.gBox_Gender = new System.Windows.Forms.GroupBox();
-            this.rBtn_Male = new System.Windows.Forms.RadioButton();
-            this.rBtn_Female = new System.Windows.Forms.RadioButton();
             this.rBtn_Other = new System.Windows.Forms.RadioButton();
+            this.rBtn_Female = new System.Windows.Forms.RadioButton();
+            this.rBtn_Male = new System.Windows.Forms.RadioButton();
             this.btn_OK = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
             this.lbl_ID = new System.Windows.Forms.Label();
@@ -85,6 +85,7 @@
             this.tBox_Age.Name = "tBox_Age";
             this.tBox_Age.Size = new System.Drawing.Size(267, 20);
             this.tBox_Age.TabIndex = 4;
+            this.tBox_Age.Leave += new System.EventHandler(this.tBox_Age_Leave);
             // 
             // cBox_Country
             // 
@@ -96,6 +97,7 @@
             // 
             // gBox_Gender
             // 
+            this.gBox_Gender.BackColor = System.Drawing.SystemColors.Control;
             this.gBox_Gender.Controls.Add(this.rBtn_Other);
             this.gBox_Gender.Controls.Add(this.rBtn_Female);
             this.gBox_Gender.Controls.Add(this.rBtn_Male);
@@ -105,6 +107,26 @@
             this.gBox_Gender.TabIndex = 9;
             this.gBox_Gender.TabStop = false;
             this.gBox_Gender.Text = "Gender";
+            // 
+            // rBtn_Other
+            // 
+            this.rBtn_Other.AutoSize = true;
+            this.rBtn_Other.Location = new System.Drawing.Point(210, 19);
+            this.rBtn_Other.Name = "rBtn_Other";
+            this.rBtn_Other.Size = new System.Drawing.Size(51, 17);
+            this.rBtn_Other.TabIndex = 2;
+            this.rBtn_Other.Text = "Other";
+            this.rBtn_Other.UseVisualStyleBackColor = true;
+            // 
+            // rBtn_Female
+            // 
+            this.rBtn_Female.AutoSize = true;
+            this.rBtn_Female.Location = new System.Drawing.Point(100, 20);
+            this.rBtn_Female.Name = "rBtn_Female";
+            this.rBtn_Female.Size = new System.Drawing.Size(59, 17);
+            this.rBtn_Female.TabIndex = 1;
+            this.rBtn_Female.Text = "Female";
+            this.rBtn_Female.UseVisualStyleBackColor = true;
             // 
             // rBtn_Male
             // 
@@ -118,26 +140,6 @@
             this.rBtn_Male.Text = "Male";
             this.rBtn_Male.UseVisualStyleBackColor = true;
             // 
-            // rBtn_Female
-            // 
-            this.rBtn_Female.AutoSize = true;
-            this.rBtn_Female.Location = new System.Drawing.Point(100, 20);
-            this.rBtn_Female.Name = "rBtn_Female";
-            this.rBtn_Female.Size = new System.Drawing.Size(59, 17);
-            this.rBtn_Female.TabIndex = 1;
-            this.rBtn_Female.Text = "Female";
-            this.rBtn_Female.UseVisualStyleBackColor = true;
-            // 
-            // rBtn_Other
-            // 
-            this.rBtn_Other.AutoSize = true;
-            this.rBtn_Other.Location = new System.Drawing.Point(210, 19);
-            this.rBtn_Other.Name = "rBtn_Other";
-            this.rBtn_Other.Size = new System.Drawing.Size(51, 17);
-            this.rBtn_Other.TabIndex = 2;
-            this.rBtn_Other.Text = "Other";
-            this.rBtn_Other.UseVisualStyleBackColor = true;
-            // 
             // btn_OK
             // 
             this.btn_OK.Location = new System.Drawing.Point(292, 218);
@@ -146,6 +148,7 @@
             this.btn_OK.TabIndex = 10;
             this.btn_OK.Text = "OK";
             this.btn_OK.UseVisualStyleBackColor = true;
+            this.btn_OK.Click += new System.EventHandler(this.btn_OK_Click);
             // 
             // btn_Cancel
             // 
@@ -155,6 +158,7 @@
             this.btn_Cancel.TabIndex = 11;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // lbl_ID
             // 
@@ -171,8 +175,9 @@
             this.tBox_ID.Name = "tBox_ID";
             this.tBox_ID.Size = new System.Drawing.Size(267, 20);
             this.tBox_ID.TabIndex = 12;
+            this.tBox_ID.Leave += new System.EventHandler(this.tBox_ID_Leave);
             // 
-            // AddRunner
+            // AddRunnerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,7 +193,7 @@
             this.Controls.Add(this.lbl_Country);
             this.Controls.Add(this.lbl_Name);
             this.Controls.Add(this.tBox_Name);
-            this.Name = "AddRunner";
+            this.Name = "AddRunnerView";
             this.Text = "AddRunner";
             this.gBox_Gender.ResumeLayout(false);
             this.gBox_Gender.PerformLayout();
