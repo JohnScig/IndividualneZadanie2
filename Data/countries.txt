@@ -1,0 +1,8 @@
+AT;Austria
+CZ;Czech Republic
+HU;Hungary
+PL;Poland
+SI;Slovenia
+SK;Slovakia
+UA;Ukraine
+
