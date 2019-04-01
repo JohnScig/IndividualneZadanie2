@@ -10,6 +10,11 @@ namespace FinishLine.Core
 {
     public static class DataHandler
     {
+        /// <summary>
+        /// Loading a list of countries and their abbreviations from a .csv file
+        /// </summary>
+        /// <param name="filepath"></param>
+        /// <returns></returns>
         public static List<Country> LoadCountries(string filepath)
         {
             List<Country> countries = new List<Country>();
@@ -30,6 +35,10 @@ namespace FinishLine.Core
             return countries;
         }
 
+        /// <summary>
+        /// Method saves runners into a textfile
+        /// </summary>
+        /// <param name="filePath"></param>
         public static void SaveRunners(string filePath)
         {
             File.Delete(filePath);
@@ -39,6 +48,11 @@ namespace FinishLine.Core
             }
         }
 
+        /// <summary>
+        /// Method loads runners from a text file.
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static Dictionary<int, Runner> LoadRunners (string filePath)
         {
             Dictionary<int, Runner> runners = new Dictionary<int, Runner>();
@@ -53,6 +67,9 @@ namespace FinishLine.Core
             return runners;
         }
 
+        /// <summary>
+        /// Method saves data about the race into a textfile.
+        /// </summary>
         public static void SaveResults()
         {
             string filepath = "results.txt";

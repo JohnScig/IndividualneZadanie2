@@ -14,9 +14,14 @@ namespace FinishLine.Core
         public string Gender { get; set; }
         public int ID { get; set; }
 
-        //public int Laps { get; set; }
-
-
+        /// <summary>
+        /// Basic modification function.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="country"></param>
+        /// <param name="age"></param>
+        /// <param name="gender"></param>
+        /// <param name="id"></param>
         public void ModifyRunner (string name, string country, int age, string gender, int id)
         {
             Name = name;
@@ -26,6 +31,10 @@ namespace FinishLine.Core
             ID = id;
         }
 
+        /// <summary>
+        /// To string function formated for easy reading from a text file.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return (ID + "\t" + Name + "\t" + Country + "\t" + Age + "\t" + Gender);

@@ -13,14 +13,19 @@ namespace FinishLine
 {
     public partial class AddRunnerView : Form
     {
+        /// <summary>
+        /// Default constructor. ComboBox is pre-loaded with a list of countries and the numeric value is set with a unique, randomly-generated ID
+        /// </summary>
         public AddRunnerView()
         {
             InitializeComponent();
             LoadComboBox();
             numeric_ID.Value = Race.GetRandomID();
-
         }
 
+        /// <summary>
+        /// Loads the ComboBox with list of countries.
+        /// </summary>
         public void LoadComboBox()
         {
             cBox_Country.DataSource = DataHandler.LoadCountries(@"C:\Users\transformer10\source\repos\IndividualneZadanie2\Data\countries.csv");
@@ -28,6 +33,11 @@ namespace FinishLine
             cBox_Country.ValueMember = nameof(Country.Code).ToString();
         }
 
+        /// <summary>
+        /// New runner is added to the dictionary as specified by the user.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_OK_Click(object sender, EventArgs e)
         {
             Race.Runners.Add
@@ -58,14 +68,23 @@ namespace FinishLine
             this.Close();
         }
 
+        /// <summary>
+        /// Checks if the numeric value in NumericUpDown is a unique ID. If it is not, the method gets automatically finds a random unique ID to use.
+        /// User is warned about the change.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numeric_ID_ValueChanged(object sender, EventArgs e)
         {
             int correctID = (int)numeric_ID.Value;
 
             while (!Race.CheckID(correctID))
             {
-                //MessageBox.Show("ID already in use, checking next number");
-                correctID++;
+                correctID=Race.GetRandomID();
+            }
+            if (correctID != (int)numeric_ID.Value)
+            {
+                MessageBox.Show("ID already in use, assigned next available number.");
             }
             numeric_ID.Value = correctID;
         }

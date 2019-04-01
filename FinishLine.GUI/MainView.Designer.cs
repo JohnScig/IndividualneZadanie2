@@ -44,7 +44,7 @@
             this.dataGridView_Leaderboards = new System.Windows.Forms.DataGridView();
             this.btn_Main_StartRace = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_Main_NumOfLaps = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -153,7 +153,7 @@
             // 
             this.tStrip_SaveResults.Enabled = false;
             this.tStrip_SaveResults.Name = "tStrip_SaveResults";
-            this.tStrip_SaveResults.Size = new System.Drawing.Size(152, 22);
+            this.tStrip_SaveResults.Size = new System.Drawing.Size(138, 22);
             this.tStrip_SaveResults.Text = "Save Results";
             this.tStrip_SaveResults.Click += new System.EventHandler(this.tStrip_SaveResults_Click);
             // 
@@ -214,23 +214,23 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Number of Laps";
             // 
-            // label2
+            // lbl_Main_NumOfLaps
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(467, 157);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "0";
+            this.lbl_Main_NumOfLaps.AutoSize = true;
+            this.lbl_Main_NumOfLaps.Location = new System.Drawing.Point(467, 157);
+            this.lbl_Main_NumOfLaps.Name = "lbl_Main_NumOfLaps";
+            this.lbl_Main_NumOfLaps.Size = new System.Drawing.Size(13, 13);
+            this.lbl_Main_NumOfLaps.TabIndex = 7;
+            this.lbl_Main_NumOfLaps.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(402, 179);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Laps Elapsed";
+            this.label3.Text = "Lap Length";
             // 
             // label4
             // 
@@ -246,9 +246,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(402, 224);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.Size = new System.Drawing.Size(81, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Laps To Go";
+            this.label5.Text = "Points Positions";
             // 
             // label6
             // 
@@ -355,7 +355,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_Main_NumOfLaps);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Main_StartRace);
             this.Controls.Add(this.dataGridView_Leaderboards);
@@ -385,7 +385,7 @@
         private System.Windows.Forms.DataGridView dataGridView_Leaderboards;
         private System.Windows.Forms.Button btn_Main_StartRace;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_Main_NumOfLaps;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

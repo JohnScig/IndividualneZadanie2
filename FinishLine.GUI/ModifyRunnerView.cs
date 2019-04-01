@@ -13,11 +13,17 @@ namespace FinishLine
 {
     public partial class ModifyRunnerView : Form
     {
+        /// <summary>
+        /// Default form constructor. Is not used by this program.
+        /// </summary>
         public ModifyRunnerView()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Modified form constructor. Takes Runner as parameter and loads its data into the various form elements.
+        /// </summary>
         public ModifyRunnerView(Runner r)
         {
             InitializeComponent();
@@ -29,7 +35,11 @@ namespace FinishLine
 
         private Runner runnerToChange = new Runner();
 
-        private void LoadRunnerData(Runner r)
+        /// <summary>
+        /// Loads Runner's data into various elements of the form.
+        /// </summary>
+        /// <param name="r"></param>
+        public void LoadRunnerData(Runner r)
         {
             tBox_Name.Text = r.Name;
             numeric_Age.Value = r.Age;
@@ -48,6 +58,9 @@ namespace FinishLine
 
         }
 
+        /// <summary>
+        /// Loads the ComboBox with list of countries.
+        /// </summary>
         public void LoadComboBox()
         {
             cBox_Country.DataSource = DataHandler.LoadCountries(@"C:\Users\transformer10\source\repos\IndividualneZadanie2\Data\countries.csv");
@@ -55,7 +68,11 @@ namespace FinishLine
             cBox_Country.ValueMember = nameof(Country.Code).ToString();
         }
 
-        private string GetGender()
+        /// <summary>
+        /// Sets the correct radio button based on the runner's gender.
+        /// </summary>
+        /// <returns></returns>
+        public string GetGender()
         {
             if (rBtn_Female.Checked)
             {
@@ -74,6 +91,11 @@ namespace FinishLine
             this.Close();
         }
 
+        /// <summary>
+        /// On OK click on the Edit window, the specified runner is deleted and the edited version is added into the dictionary.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_OK_Click(object sender, EventArgs e)
         {
 
@@ -91,17 +113,13 @@ namespace FinishLine
             this.Close();
         }
 
-        private void GetSomeID()
-        {
-            int someID = 1;
-            while (!Race.CheckID(someID))
-            {
-                //MessageBox.Show("ID already in use, checking next number");
-                Race.CheckID(++someID);
-            }
-            numeric_ID.Value = someID;
-        }
-
+        /// <summary>
+        /// If the user changes the value of ID in the numericUpDown element, function is called to check that ID against the list of Runners' IDs.
+        /// If that ID is found, a random ID is generated until a unique one is found. That unique ID is then set as the new ID of the edited Racer.
+        /// The function warns user that the ID was changed automatically
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numeric_ID_ValueChanged(object sender, EventArgs e)
         {
 
@@ -113,7 +131,7 @@ namespace FinishLine
                 { break; }
                 else
                 {
-                    correctID++;
+                    correctID = Race.GetRandomID();
                 }
             }
             if (correctID != (int)numeric_ID.Value)

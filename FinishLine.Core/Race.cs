@@ -9,20 +9,29 @@ namespace FinishLine.Core
 {
     public static class Race
     {
+        #region Dictionaries and lists of racers
+
         public static Dictionary<int, Runner> Runners { get; set; } = new Dictionary<int, Runner>();
         public static Dictionary<int, List<DateTime>> RunnerLaps { get; set; } = new Dictionary<int, List<DateTime>>();
         public static List<int> WinningRunners { get; set; } = new List<int>();
 
+        #endregion
+
+        #region Parameters of the race
         public static int NumOfLaps { get; set; } = 3;
         public static int LapsElapsed { get; set; } = 1;
-
         public static double LengthOfLap { get; set; }
         public static int PointsPositions { get; set; }
         public static DateTime StartOfRace { get; set; }
         public static DateTime EndOfRace { get; set; }
-
         public static Runner Leader { get; set; }
+        #endregion
 
+        /// <summary>
+        /// Method checks if given ID is unique in the Dictionary of runners.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool CheckID(int id)
         {
             if ((Runners.ContainsKey(id)))
@@ -35,18 +44,24 @@ namespace FinishLine.Core
             }
         }
 
+        /// <summary>
+        /// Method gets the next higher unique ID
+        /// </summary>
+        /// <returns></returns>
         public static int GetSomeID()
         {
-            Random rand = new Random();
-            int someID = rand.Next(1, 999);
-            while (!CheckID(someID))
+            int someID = 1;
+            while (!Race.CheckID(someID))
             {
-                //MessageBox.Show("ID already in use, checking next number");
                 Race.CheckID(++someID);
             }
             return someID;
         }
 
+        /// <summary>
+        /// Method gets the next unique random ID
+        /// </summary>
+        /// <returns></returns>
         public static int GetRandomID()
         {
             Random rand = new Random();
@@ -59,8 +74,19 @@ namespace FinishLine.Core
             return someID;
         }
 
-        public static int GetCurrentLap(int id)
+        /// <summary>
+        /// Method checks how many entries are in the racer's RunnerLaps dictionary. Based on that, the number of laps he has finished is returned.
+        /// Returns a "W" if given racer has already finished the race.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static object GetCurrentLap(int id)
         {
+            if (Race.CheckFinishedRace(Race.Runners[id]))
+            {
+                return "W";
+            }
+
             if (RunnerLaps.ContainsKey(id))
             {
                 return RunnerLaps[id].Count;
@@ -71,6 +97,12 @@ namespace FinishLine.Core
             }
         }
 
+        /// <summary>
+        /// Method checks whether a racer is the race leader. If so, his delta is 0. If not, his delta time to the leader in the given lap is calculated.
+        /// In case the runner is not on the same lap, the method indicates how many laps down they are.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static object GetLapDeltaToLeader(int id)
         {
             if (Leader != null)
@@ -98,6 +130,12 @@ namespace FinishLine.Core
 
         }
 
+        /// <summary>
+        /// Method gets the runner's overall time as a difference of when he crossed the last lap line and when the race started.
+        /// If they are on the first lap, it is zero.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static TimeSpan GetOverallTime(int id)
         {
 
@@ -112,6 +150,13 @@ namespace FinishLine.Core
             }
         }
 
+        /// <summary>
+        /// Method calculates a special hidden value based on which the leaderboards are ordered.
+        /// The value is 100*number of laps the runner is currently on minus overall time in years.
+        /// This way, the leaderboards will only show bad numbers if the runners stay still for 100 years per lap, which is quite impossible.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static double GetOverallHiddenTime(int id)
         {
 
@@ -130,6 +175,9 @@ namespace FinishLine.Core
             }
         }
 
+        /// <summary>
+        /// Starts the race. The RunnerLaps Dictionary is populated with new values based on the Racers dictionary.
+        /// </summary>
         public static void StartRace()
         {
             RunnerLaps.Clear();
@@ -141,6 +189,11 @@ namespace FinishLine.Core
             }
         }
 
+        /// <summary>
+        /// Method checks if the runner sent as parameter is the leader of the race (based on if he has finished more laps than anybody else)
+        /// If so, the LapsElapsed property of the race is increased, as the leader is always the first to start a new lap.
+        /// </summary>
+        /// <param name="runner"></param>
         public static void CheckRaceLeader(Runner runner)
         {
             if (RunnerLaps[runner.ID].Count > LapsElapsed)
@@ -150,6 +203,11 @@ namespace FinishLine.Core
             }
         }
 
+        /// <summary>
+        /// Checks whether the runner has already finished the race by checking if he's in the list of winning racers.
+        /// </summary>
+        /// <param name="runner"></param>
+        /// <returns></returns>
         public static bool CheckFinishedRace(Runner runner)
         {
             if (WinningRunners.Contains(runner.ID))
@@ -160,6 +218,10 @@ namespace FinishLine.Core
             return false;
         }
 
+        /// <summary>
+        /// Method checks if the entire race is finished by checking how many runners have finished and whether that number is sufficient.
+        /// </summary>
+        /// <returns></returns>
         public static bool CheckEndOfRace()
         {
             if (WinningRunners.Count >= PointsPositions)
@@ -169,6 +231,11 @@ namespace FinishLine.Core
             return false;
         }
 
+        /// <summary>
+        /// Method checks if the runner finished the race. It checks the count of his RunnerLaps values and compares it to the number of necessary laps to end race.
+        /// </summary>
+        /// <param name="runner"></param>
+        /// <returns></returns>
         public static bool CheckIsDone(Runner runner)
         {
             if (RunnerLaps[runner.ID].Count == NumOfLaps + 1)
@@ -180,41 +247,6 @@ namespace FinishLine.Core
             return false;
 
         }
-
-        //public static void SaveResults()
-        //{
-        //    string filepath = "results.txt";
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.AppendLine("Results of Race:");
-        //    sb.Append($"Race Start: {StartOfRace}".PadRight(45,' '));
-        //    sb.AppendLine($"Race End: {EndOfRace}");//.PadRight(30, ' '));
-        //    sb.Append($"Race Winner:{Race.Runners[WinningRunners[0]].Name}".PadRight(45, ' '));
-        //    sb.AppendLine($"Winning time:{GetOverallTime(WinningRunners[0])}");
-        //    sb.AppendLine("\n");
-        //    sb.Append("Laps".PadRight(30,' '));
-        //    for (int i = 1; i <= NumOfLaps; i++)
-        //    {
-        //        sb.Append(("Lap " + i).PadRight(20,' '));
-        //    }
-        //    sb.Append("Overall Time".PadRight(20, ' '));
-        //    sb.Append("\n");
-
-        //    foreach (Runner runner in Race.Runners.Values)
-        //    {
-        //        DateTime minusTime = Race.StartOfRace;
-        //        string MyString = runner.Name;
-        //        sb.Append($"{runner.Name.PadRight(30, ' ')}");
-        //        foreach (DateTime time in RunnerLaps[runner.ID].Skip(1))
-        //        {
-        //            sb.Append($"{time-minusTime}".PadRight(20, ' '));
-        //            minusTime = time;
-        //        }
-        //        sb.Append($"{GetOverallTime(runner.ID)}\n");
-        //    }
-        //    File.Delete(filepath);
-        //    File.AppendAllText(filepath, sb.ToString());
-
-        //}
 
     }
 }
