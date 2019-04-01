@@ -58,5 +58,18 @@ namespace FinishLine
 
             DisplayRunners();
         }
+
+        private void btn_Runners_Load_Click(object sender, EventArgs e)
+        {
+            Race.Runners.Clear();
+            Race.Runners = DataHandler.LoadRunners("runners.txt");
+
+            DisplayRunners();
+        }
+
+        private void btn_Runners_Save_Click(object sender, EventArgs e)
+        {
+            DataHandler.SaveRunners("runners.txt");
+        }
     }
 }

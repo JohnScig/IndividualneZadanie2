@@ -24,6 +24,11 @@ namespace FinishLine
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void tStripLabel_Runners_Click(object sender, EventArgs e)
+        {
             runnersView.ShowDialog();
         }
     }

@@ -23,15 +23,6 @@ namespace FinishLine.Core
                 return true;
             }
 
-
-            //foreach (Runner runner in Runners)
-            //{
-            //    if (runner.ID == id)
-            //    {
-            //        return false;
-            //    }
-            //}
-            //return true;
         }
 
     }

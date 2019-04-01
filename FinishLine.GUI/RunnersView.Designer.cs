@@ -38,6 +38,8 @@
             this.btn_Runners_Delete = new System.Windows.Forms.Button();
             this.btn_Runners_Modify = new System.Windows.Forms.Button();
             this.btn_Runners_Close = new System.Windows.Forms.Button();
+            this.btn_Runners_Load = new System.Windows.Forms.Button();
+            this.btn_Runners_Save = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Runners)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,19 +131,41 @@
             // 
             // btn_Runners_Close
             // 
-            this.btn_Runners_Close.Location = new System.Drawing.Point(549, 503);
+            this.btn_Runners_Close.Location = new System.Drawing.Point(490, 503);
             this.btn_Runners_Close.Name = "btn_Runners_Close";
-            this.btn_Runners_Close.Size = new System.Drawing.Size(75, 23);
+            this.btn_Runners_Close.Size = new System.Drawing.Size(134, 23);
             this.btn_Runners_Close.TabIndex = 4;
             this.btn_Runners_Close.Text = "Close";
             this.btn_Runners_Close.UseVisualStyleBackColor = true;
             this.btn_Runners_Close.Click += new System.EventHandler(this.btn_Runners_Close_Click);
+            // 
+            // btn_Runners_Load
+            // 
+            this.btn_Runners_Load.Location = new System.Drawing.Point(490, 380);
+            this.btn_Runners_Load.Name = "btn_Runners_Load";
+            this.btn_Runners_Load.Size = new System.Drawing.Size(134, 23);
+            this.btn_Runners_Load.TabIndex = 5;
+            this.btn_Runners_Load.Text = "Load Runners";
+            this.btn_Runners_Load.UseVisualStyleBackColor = true;
+            this.btn_Runners_Load.Click += new System.EventHandler(this.btn_Runners_Load_Click);
+            // 
+            // btn_Runners_Save
+            // 
+            this.btn_Runners_Save.Location = new System.Drawing.Point(490, 409);
+            this.btn_Runners_Save.Name = "btn_Runners_Save";
+            this.btn_Runners_Save.Size = new System.Drawing.Size(134, 23);
+            this.btn_Runners_Save.TabIndex = 6;
+            this.btn_Runners_Save.Text = "Save Runners";
+            this.btn_Runners_Save.UseVisualStyleBackColor = true;
+            this.btn_Runners_Save.Click += new System.EventHandler(this.btn_Runners_Save_Click);
             // 
             // RunnersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 538);
+            this.Controls.Add(this.btn_Runners_Save);
+            this.Controls.Add(this.btn_Runners_Load);
             this.Controls.Add(this.btn_Runners_Close);
             this.Controls.Add(this.btn_Runners_Modify);
             this.Controls.Add(this.btn_Runners_Delete);
@@ -166,5 +190,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Country;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Age;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Gender;
+        private System.Windows.Forms.Button btn_Runners_Load;
+        private System.Windows.Forms.Button btn_Runners_Save;
     }
 }

@@ -116,7 +116,10 @@ namespace FinishLine
                     correctID++;
                 }
             }
-            MessageBox.Show("ID already in use, assigned next available number.");
+            if (correctID != (int)numeric_ID.Value)
+            {
+                MessageBox.Show("ID already in use, assigned next available number.");
+            }
             numeric_ID.Value = correctID;
         }
 

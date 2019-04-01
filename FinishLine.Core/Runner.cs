@@ -16,6 +16,7 @@ namespace FinishLine.Core
 
         public int Laps { get; set; }
 
+
         public void ModifyRunner (string name, string country, int age, string gender, int id)
         {
             Name = name;
@@ -24,7 +25,11 @@ namespace FinishLine.Core
             Gender = gender;
             ID = id;
         }
-        
+
+        public override string ToString()
+        {
+            return (ID + "\t" + Name + "\t" + Country + "\t" + Age + "\t" + Gender);
+        }
 
     }
 }
