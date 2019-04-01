@@ -10,9 +10,8 @@ namespace FinishLine.Core
     {
         public static Dictionary<int, Runner> Runners { get; set; } = new Dictionary<int, Runner>();
         public static Dictionary<int, List<DateTime>> RunnerLaps { get; set; } = new Dictionary<int, List<DateTime>>();
-        public static Dictionary<int, List<Runner>> WinningRunners { get; set; } = new Dictionary<int,List<Runner>>();
+        public static List<int> WinningRunners { get; set; } = new List<int>();
 
-        //{ new Runner[ID] { ID = 12, Name = "John Doe", Age = 25, Gender = "Male", Country = "SK" }
         public static int NumOfLaps { get; set; } = 3;
         public static int LapsElapsed { get; set; } = 1;
 
@@ -152,7 +151,7 @@ namespace FinishLine.Core
 
         public static bool CheckFinishedRace(Runner runner)
         {
-            if (WinningRunners.Keys.Contains(runner.ID))
+            if (WinningRunners.Contains(runner.ID))
             {
                 return true;
             }
@@ -162,13 +161,24 @@ namespace FinishLine.Core
 
         public static bool CheckEndOfRace()
         {
-            if (WinningRunners.Count >= NumOfLaps )
+            if (WinningRunners.Count >= PointsPositions )
             {
                 return true;
             }
             return false;
         }
 
+        public static bool CheckIsDone(Runner runner)
+        {
+            if (RunnerLaps[runner.ID].Count==NumOfLaps+1)
+            {
+                WinningRunners.Add(runner.ID);
+                return true;
+            }
+
+            return false;
+
+        }
 
     }
 }

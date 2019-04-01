@@ -354,6 +354,7 @@
             this.OverallHiddenTime.HeaderText = "HiddenTime";
             this.OverallHiddenTime.Name = "OverallHiddenTime";
             this.OverallHiddenTime.ReadOnly = true;
+            this.OverallHiddenTime.Visible = false;
             // 
             // MainView
             // 

@@ -16,6 +16,7 @@ namespace FinishLine
         public MainView()
         {
             InitializeComponent();
+            //dataGridView_Laps.Columns[0].FillWeight = 35;
 
         }
 
@@ -43,6 +44,8 @@ namespace FinishLine
                 {
                     btn_Main_StartRace.Enabled = false;
                     btn_Main_EndRace.Enabled = true;
+                    tBox_FinishLap.Enabled = true;
+                    dataGridView_Laps.Enabled = true;
                     Race.StartRace();
                     DisplayLaps();
                     DisplayLeaderboards();
@@ -53,9 +56,8 @@ namespace FinishLine
 
         private void btn_Main_EndRace_Click(object sender, EventArgs e)
         {
-            Race.EndOfRace = DateTime.Now;
-            btn_Main_EndRace.Enabled = false;
-            btn_Main_StartRace.Enabled = true;
+            EndOfRace();
+
         }
 
         public void DisplayLaps()
@@ -66,9 +68,9 @@ namespace FinishLine
                 dataGridView_Laps.Rows.Add(person.ID, person.Name, Race.GetCurrentLap(person.ID),
                     person.Country, person.Age, person.Gender);
             }
+            
 
         }
-        //dataGridViewGrouper1.SetGroupOn(dataGridView_Laps.Columns[2]);
 
         public void DisplayLeaderboards()
         {
@@ -117,23 +119,39 @@ namespace FinishLine
                 {
                     MessageBox.Show("This racer already finished the race");
                 }
-                
-                Race.RunnerLaps[id].Add(DateTime.Now);
-                Race.CheckRaceLeader(Race.Runners[id]);
-                
-
-                DisplayLaps();
-                DisplayLeaderboards();
-
-                if (Race.CheckEndOfRace())
+                else
                 {
-                    MessageBox.Show("The race is over!");
+                    Race.RunnerLaps[id].Add(DateTime.Now);
+                    Race.CheckRaceLeader(Race.Runners[id]);
+
+                    DisplayLaps();
+                    DisplayLeaderboards();
+
+                    if (Race.CheckIsDone(Race.Runners[id]))
+                    {
+                        MessageBox.Show($"Racer {Race.Runners[id].Name} has finished the race on position no. {Race.WinningRunners.Count}");
+                    }
+
+                    if (Race.CheckEndOfRace())
+                    {
+                        MessageBox.Show("The race is over!");
+                        EndOfRace();
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("Wrong ID");
             }
+        }
+
+        public void EndOfRace()
+        {
+            Race.EndOfRace = DateTime.Now;
+            btn_Main_EndRace.Enabled = false;
+            tBox_FinishLap.Enabled = false;
+            dataGridView_Laps.Enabled = false;
+            btn_Main_StartRace.Enabled = true;
         }
     }
 }
