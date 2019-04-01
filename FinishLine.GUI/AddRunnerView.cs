@@ -17,7 +17,7 @@ namespace FinishLine
         {
             InitializeComponent();
             LoadComboBox();
-            GetSomeID();
+            numeric_ID.Value = Race.GetRandomID();
 
         }
 
@@ -30,7 +30,6 @@ namespace FinishLine
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
-            //Race.Runners.Add(new Runner() {ID= int.Parse(tBox_ID.Text),Name = tBox_Name.Text,Country = cBox_Country.SelectedValue.ToString(),Age = int.Parse(tBox_Age.Text),Gender = GetGender() });
             Race.Runners.Add
                 (
                 key: (int) numeric_ID.Value, 
@@ -39,19 +38,6 @@ namespace FinishLine
                 );
             this.Close();
         }
-
-        private void GetSomeID()
-        {
-            int someID=1;
-            while (!Race.CheckID(someID))
-            {
-                //MessageBox.Show("ID already in use, checking next number");
-                Race.CheckID(++someID);
-            }
-            numeric_ID.Value = someID;
-        }
-
-
 
         private string GetGender()
         {
@@ -78,7 +64,7 @@ namespace FinishLine
 
             while (!Race.CheckID(correctID))
             {
-                MessageBox.Show("ID already in use, checking next number");
+                //MessageBox.Show("ID already in use, checking next number");
                 correctID++;
             }
             numeric_ID.Value = correctID;

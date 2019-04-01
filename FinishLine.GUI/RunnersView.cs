@@ -49,7 +49,6 @@ namespace FinishLine
 
         private void btn_Runners_Modify_Click(object sender, EventArgs e)
         {
-            
             Runner runnerToChange;
             Race.Runners.TryGetValue((int) dataGridView_Runners.SelectedRows[0].Cells[0].Value, out runnerToChange);
 
