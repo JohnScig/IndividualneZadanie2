@@ -52,6 +52,12 @@
     <Compile Include="AddRunnerView.Designer.cs">
       <DependentUpon>AddRunnerView.cs</DependentUpon>
     </Compile>
+    <Compile Include="StartRaceView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StartRaceView.Designer.cs">
+      <DependentUpon>StartRaceView.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </Compile>
     <EmbeddedResource Include="AddRunnerView.resx">
       <DependentUpon>AddRunnerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StartRaceView.resx">
+      <DependentUpon>StartRaceView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainView.resx">
       <DependentUpon>MainView.cs</DependentUpon>

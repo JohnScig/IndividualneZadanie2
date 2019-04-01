@@ -11,6 +11,13 @@ namespace FinishLine.Core
         public static Dictionary<int, Runner> Runners { get; set; } = new Dictionary<int, Runner>();
         //{ new Runner[ID] { ID = 12, Name = "John Doe", Age = 25, Gender = "Male", Country = "SK" }
         public static int NumOfLaps { get; set; } = 3;
+        public static int LapsElapsed { get; set; } = 0;
+
+        public static double LengthOfLap { get; set; }
+        public static int PointsPositions { get; set; }
+        public static DateTime StartOfRace { get; set; }
+        public static DateTime EndOfRace { get; set; }
+
 
         public static bool CheckID(int id)
         {
