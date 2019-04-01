@@ -30,6 +30,7 @@ namespace FinishLine
             LoadComboBox();
             runnerToChange = r;
             LoadRunnerData(r);
+            DialogResult = DialogResult.Cancel;
         }
 
         private Runner runnerToChange = new Runner();
@@ -106,6 +107,7 @@ namespace FinishLine
                 Age = (int)numeric_Age.Value,
                 Gender = GetGender()
             });
+            DialogResult = DialogResult.OK;
             this.Close();
         }
 

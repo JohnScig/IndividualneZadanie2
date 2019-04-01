@@ -184,18 +184,23 @@ namespace FinishLine
         /// </summary>
         public void DisplayLeaderboards()
         {
+            int position = 1;
             dataGridView_Leaderboards.Rows.Clear();
             foreach (Runner person in Race.Runners.Values)
             {
-                dataGridView_Leaderboards.Rows.Add(person.ID, person.Name,
+                dataGridView_Leaderboards.Rows.Add(0, person.ID, person.Name,
                     Race.GetCurrentLap(person.ID), Race.GetLapDeltaToLeader(person.ID).ToString(),
                     Race.GetOverallTime(person.ID), Race.GetOverallHiddenTime(person.ID));
             }
-            dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[5], ListSortDirection.Descending);
+            dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[6], ListSortDirection.Descending);
+            foreach (DataGridViewRow row in dataGridView_Leaderboards.Rows)
+            {
+                row.Cells[0].Value = position++;
+            }
         }
 
         /// <summary>
-        /// Populates labels regarding the race parameters.
+        /// Populates labels with race parameters
         /// </summary>
         public void PopulateRaceParameters()
         {

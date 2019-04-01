@@ -27,9 +27,12 @@ namespace FinishLine
         /// <param name="e"></param>
         public void btn_Runners_Add_Click(object sender, EventArgs e)
         {
-            new AddRunnerView().ShowDialog();
-
-            DataHandler.SaveRunners("runners.txt");
+            AddRunnerView addRunnerView = new AddRunnerView();
+            addRunnerView.ShowDialog();
+            if (addRunnerView.DialogResult == DialogResult.OK)
+            {
+                DataHandler.SaveRunners("runners.txt");
+            }
             DisplayRunners();
         }
 
@@ -78,7 +81,10 @@ namespace FinishLine
             ModifyRunnerView modifyRunnerView = new ModifyRunnerView(Race.Runners[(int)dataGridView_Runners.SelectedRows[0].Cells[0].Value]);
             modifyRunnerView.ShowDialog();
 
-            DataHandler.SaveRunners("runners.txt");
+            if (modifyRunnerView.DialogResult == DialogResult.OK)
+            {
+                DataHandler.SaveRunners("runners.txt");
+            }
             DisplayRunners();
         }
 

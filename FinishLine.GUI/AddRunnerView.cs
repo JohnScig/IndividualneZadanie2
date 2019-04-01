@@ -21,6 +21,7 @@ namespace FinishLine
             InitializeComponent();
             LoadComboBox();
             numeric_ID.Value = Race.GetRandomID();
+            DialogResult = DialogResult.Cancel;
         }
 
         /// <summary>
@@ -46,6 +47,7 @@ namespace FinishLine
                 value: new Runner() { ID = (int)numeric_ID.Value, Name = tBox_Name.Text, Country = cBox_Country.SelectedValue.ToString(),
                     Age = (int)numeric_Age.Value, Gender = GetGender() }
                 );
+            DialogResult = DialogResult.OK;
             this.Close();
         }
 
