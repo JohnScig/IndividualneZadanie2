@@ -38,9 +38,7 @@
             this.Column_Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tStrip_SaveResults = new System.Windows.Forms.ToolStripMenuItem();
             this.runnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tBox_FinishLap = new System.Windows.Forms.TextBox();
             this.dataGridView_Leaderboards = new System.Windows.Forms.DataGridView();
@@ -146,30 +144,18 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4});
+            this.tStrip_SaveResults});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(61, 20);
             this.toolStripMenuItem1.Text = "Options";
             // 
-            // toolStripMenuItem2
+            // tStrip_SaveResults
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(128, 22);
-            this.toolStripMenuItem2.Text = "New Race";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(128, 22);
-            this.toolStripMenuItem3.Text = "Load Race";
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(128, 22);
-            this.toolStripMenuItem4.Text = "Save Race";
+            this.tStrip_SaveResults.Enabled = false;
+            this.tStrip_SaveResults.Name = "tStrip_SaveResults";
+            this.tStrip_SaveResults.Size = new System.Drawing.Size(152, 22);
+            this.tStrip_SaveResults.Text = "Save Results";
+            this.tStrip_SaveResults.Click += new System.EventHandler(this.tStrip_SaveResults_Click);
             // 
             // runnersToolStripMenuItem
             // 
@@ -392,9 +378,7 @@
         private System.Windows.Forms.DataGridView dataGridView_Laps;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem tStrip_SaveResults;
         private Subro.Controls.DataGridViewGrouper dataGridViewGrouper1;
         private System.Windows.Forms.ToolStripMenuItem runnersToolStripMenuItem;
         private System.Windows.Forms.TextBox tBox_FinishLap;

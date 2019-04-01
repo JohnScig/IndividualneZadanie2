@@ -10,8 +10,6 @@ namespace FinishLine.Core
 {
     public static class DataHandler
     {
-        
-
         public static List<Country> LoadCountries(string filepath)
         {
             List<Country> countries = new List<Country>();
@@ -55,7 +53,40 @@ namespace FinishLine.Core
             return runners;
         }
 
+        public static void SaveResults()
+        {
+            string filepath = "results.txt";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Results of Race:");
+            sb.Append($"Race Start: {Race.StartOfRace}".PadRight(45, ' '));
+            sb.AppendLine($"Race End: {Race.EndOfRace}");
+            sb.Append($"Race Winner:{Race.Runners[Race.WinningRunners[0]].Name}".PadRight(45, ' '));
+            sb.AppendLine($"Winning time:{Race.GetOverallTime(Race.WinningRunners[0])}");
+            sb.AppendLine("\n");
+            sb.Append("Laps".PadRight(30, ' '));
+            for (int i = 1; i <= Race.NumOfLaps; i++)
+            {
+                sb.Append(("Lap " + i).PadRight(20, ' '));
+            }
+            sb.Append("Overall Time".PadRight(20, ' '));
+            sb.Append("\n");
 
+            foreach (Runner runner in Race.Runners.Values)
+            {
+                DateTime minusTime = Race.StartOfRace;
+                string MyString = runner.Name;
+                sb.Append($"{runner.Name.PadRight(30, ' ')}");
+                foreach (DateTime time in Race.RunnerLaps[runner.ID].Skip(1))
+                {
+                    sb.Append($"{time - minusTime}".PadRight(20, ' '));
+                    minusTime = time;
+                }
+                sb.Append($"{Race.GetOverallTime(runner.ID)}\n");
+            }
+            File.Delete(filepath);
+            File.AppendAllText(filepath, sb.ToString());
+
+        }
 
 
     }

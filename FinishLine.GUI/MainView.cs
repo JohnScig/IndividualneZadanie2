@@ -60,40 +60,13 @@ namespace FinishLine
 
         }
 
-        public void DisplayLaps()
-        {
-            dataGridView_Laps.Rows.Clear();
-            foreach (Runner person in Race.Runners.Values)
-            {
-                dataGridView_Laps.Rows.Add(person.ID, person.Name, Race.GetCurrentLap(person.ID),
-                    person.Country, person.Age, person.Gender);
-            }
-            
-
-        }
-
-        public void DisplayLeaderboards()
-        {
-            dataGridView_Leaderboards.Rows.Clear();
-            foreach (Runner person in Race.Runners.Values)
-            {
-                dataGridView_Leaderboards.Rows.Add(person.ID, person.Name,
-                    Race.GetCurrentLap(person.ID), Race.GetLapDeltaToLeader(person.ID).ToString(),
-                    Race.GetOverallTime(person.ID), Race.GetOverallHiddenTime(person.ID));
-            }
-            dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[5], ListSortDirection.Descending);
-            //dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[2], ListSortDirection.Descending);
-
-
-        }
-
         private void tBox_FinishLap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 //int lappingRunnerID = int.Parse(tBox_FinishLap.Text);
 
-                RunnerLaps(int.Parse(tBox_FinishLap.Text));
+                RunnerEndsLap(int.Parse(tBox_FinishLap.Text));
                 tBox_FinishLap.Text = string.Empty;
             }
 
@@ -104,13 +77,13 @@ namespace FinishLine
             try
             {
                 //int lappingRunnerID = (int)dataGridView_Laps[0, e.RowIndex].Value;
-                RunnerLaps((int)dataGridView_Laps[0, e.RowIndex].Value);
+                RunnerEndsLap((int)dataGridView_Laps[0, e.RowIndex].Value);
             }
             catch (ArgumentOutOfRangeException)
             { }
         }
 
-        public void RunnerLaps(int id)
+        public void RunnerEndsLap(int id)
         {
 
             if (Race.RunnerLaps.Keys.Contains(id))
@@ -152,6 +125,39 @@ namespace FinishLine
             tBox_FinishLap.Enabled = false;
             dataGridView_Laps.Enabled = false;
             btn_Main_StartRace.Enabled = true;
+            tStrip_SaveResults.Enabled = true;
+        }
+
+        public void DisplayLaps()
+        {
+            dataGridView_Laps.Rows.Clear();
+            foreach (Runner person in Race.Runners.Values)
+            {
+                dataGridView_Laps.Rows.Add(person.ID, person.Name, Race.GetCurrentLap(person.ID),
+                    person.Country, person.Age, person.Gender);
+            }
+
+
+        }
+
+        public void DisplayLeaderboards()
+        {
+            dataGridView_Leaderboards.Rows.Clear();
+            foreach (Runner person in Race.Runners.Values)
+            {
+                dataGridView_Leaderboards.Rows.Add(person.ID, person.Name,
+                    Race.GetCurrentLap(person.ID), Race.GetLapDeltaToLeader(person.ID).ToString(),
+                    Race.GetOverallTime(person.ID), Race.GetOverallHiddenTime(person.ID));
+            }
+            dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[5], ListSortDirection.Descending);
+            //dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[2], ListSortDirection.Descending);
+
+
+        }
+
+        private void tStrip_SaveResults_Click(object sender, EventArgs e)
+        {
+            DataHandler.SaveResults();
         }
     }
 }

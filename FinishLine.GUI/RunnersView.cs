@@ -52,10 +52,12 @@ namespace FinishLine
 
         private void btn_Runners_Modify_Click(object sender, EventArgs e)
         {
-            Runner runnerToChange;
-            Race.Runners.TryGetValue((int) dataGridView_Runners.SelectedRows[0].Cells[0].Value, out runnerToChange);
+            //Runner runnerToModify;
+            //Race.Runners.TryGetValue((int) dataGridView_Runners.SelectedRows[0].Cells[0].Value, out runnerToModify);
 
-            ModifyRunnerView modifyRunnerView = new ModifyRunnerView(runnerToChange);
+            Runner runnerToEdit = Race.Runners[(int)dataGridView_Runners.SelectedRows[0].Cells[0].Value];
+
+            ModifyRunnerView modifyRunnerView = new ModifyRunnerView(runnerToEdit);
             modifyRunnerView.ShowDialog();
 
             DisplayRunners();

@@ -127,7 +127,7 @@
             this.btn_Runners_Modify.Name = "btn_Runners_Modify";
             this.btn_Runners_Modify.Size = new System.Drawing.Size(134, 23);
             this.btn_Runners_Modify.TabIndex = 3;
-            this.btn_Runners_Modify.Text = "Modify Runner";
+            this.btn_Runners_Modify.Text = "Edit Runner";
             this.btn_Runners_Modify.UseVisualStyleBackColor = true;
             this.btn_Runners_Modify.Click += new System.EventHandler(this.btn_Runners_Modify_Click);
             // 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -108,7 +109,7 @@ namespace FinishLine.Core
             {
                 TimeSpan overallTime = RunnerLaps[id].Last() - Race.StartOfRace;
                 return overallTime;
-            }   
+            }
         }
 
         public static double GetOverallHiddenTime(int id)
@@ -155,13 +156,13 @@ namespace FinishLine.Core
             {
                 return true;
             }
-            
+
             return false;
         }
 
         public static bool CheckEndOfRace()
         {
-            if (WinningRunners.Count >= PointsPositions )
+            if (WinningRunners.Count >= PointsPositions)
             {
                 return true;
             }
@@ -170,7 +171,7 @@ namespace FinishLine.Core
 
         public static bool CheckIsDone(Runner runner)
         {
-            if (RunnerLaps[runner.ID].Count==NumOfLaps+1)
+            if (RunnerLaps[runner.ID].Count == NumOfLaps + 1)
             {
                 WinningRunners.Add(runner.ID);
                 return true;
@@ -179,6 +180,41 @@ namespace FinishLine.Core
             return false;
 
         }
+
+        //public static void SaveResults()
+        //{
+        //    string filepath = "results.txt";
+        //    StringBuilder sb = new StringBuilder();
+        //    sb.AppendLine("Results of Race:");
+        //    sb.Append($"Race Start: {StartOfRace}".PadRight(45,' '));
+        //    sb.AppendLine($"Race End: {EndOfRace}");//.PadRight(30, ' '));
+        //    sb.Append($"Race Winner:{Race.Runners[WinningRunners[0]].Name}".PadRight(45, ' '));
+        //    sb.AppendLine($"Winning time:{GetOverallTime(WinningRunners[0])}");
+        //    sb.AppendLine("\n");
+        //    sb.Append("Laps".PadRight(30,' '));
+        //    for (int i = 1; i <= NumOfLaps; i++)
+        //    {
+        //        sb.Append(("Lap " + i).PadRight(20,' '));
+        //    }
+        //    sb.Append("Overall Time".PadRight(20, ' '));
+        //    sb.Append("\n");
+
+        //    foreach (Runner runner in Race.Runners.Values)
+        //    {
+        //        DateTime minusTime = Race.StartOfRace;
+        //        string MyString = runner.Name;
+        //        sb.Append($"{runner.Name.PadRight(30, ' ')}");
+        //        foreach (DateTime time in RunnerLaps[runner.ID].Skip(1))
+        //        {
+        //            sb.Append($"{time-minusTime}".PadRight(20, ' '));
+        //            minusTime = time;
+        //        }
+        //        sb.Append($"{GetOverallTime(runner.ID)}\n");
+        //    }
+        //    File.Delete(filepath);
+        //    File.AppendAllText(filepath, sb.ToString());
+
+        //}
 
     }
 }
