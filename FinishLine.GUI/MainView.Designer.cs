@@ -42,24 +42,24 @@
             this.runnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tBox_FinishLap = new System.Windows.Forms.TextBox();
             this.dataGridView_Leaderboards = new System.Windows.Forms.DataGridView();
-            this.btn_Main_StartRace = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbl_Main_NumOfLaps = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btn_Main_EndRace = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dataGridViewGrouper1 = new Subro.Controls.DataGridViewGrouper(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_DeltaTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_OverallTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OverallHiddenTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_Main_StartRace = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_Main_NumOfLaps = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbl_Main_LapLength = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_Main_PointsPositions = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbl_Main_NumberOfRunners = new System.Windows.Forms.Label();
+            this.btn_Main_EndRace = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.dataGridViewGrouper1 = new Subro.Controls.DataGridViewGrouper(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Laps)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Leaderboards)).BeginInit();
@@ -195,112 +195,6 @@
             this.dataGridView_Leaderboards.Size = new System.Drawing.Size(523, 411);
             this.dataGridView_Leaderboards.TabIndex = 4;
             // 
-            // btn_Main_StartRace
-            // 
-            this.btn_Main_StartRace.Location = new System.Drawing.Point(403, 27);
-            this.btn_Main_StartRace.Name = "btn_Main_StartRace";
-            this.btn_Main_StartRace.Size = new System.Drawing.Size(99, 43);
-            this.btn_Main_StartRace.TabIndex = 5;
-            this.btn_Main_StartRace.Text = "Start Race";
-            this.btn_Main_StartRace.UseVisualStyleBackColor = true;
-            this.btn_Main_StartRace.Click += new System.EventHandler(this.btn_Main_StartRace_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(402, 135);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Number of Laps";
-            // 
-            // lbl_Main_NumOfLaps
-            // 
-            this.lbl_Main_NumOfLaps.AutoSize = true;
-            this.lbl_Main_NumOfLaps.Location = new System.Drawing.Point(467, 157);
-            this.lbl_Main_NumOfLaps.Name = "lbl_Main_NumOfLaps";
-            this.lbl_Main_NumOfLaps.Size = new System.Drawing.Size(13, 13);
-            this.lbl_Main_NumOfLaps.TabIndex = 7;
-            this.lbl_Main_NumOfLaps.Text = "0";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(402, 179);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Lap Length";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(467, 203);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "0";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(402, 224);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Points Positions";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(467, 244);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "0";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(403, 282);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Number of Runners";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(467, 305);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 13);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "0";
-            // 
-            // btn_Main_EndRace
-            // 
-            this.btn_Main_EndRace.Enabled = false;
-            this.btn_Main_EndRace.Location = new System.Drawing.Point(405, 413);
-            this.btn_Main_EndRace.Name = "btn_Main_EndRace";
-            this.btn_Main_EndRace.Size = new System.Drawing.Size(96, 23);
-            this.btn_Main_EndRace.TabIndex = 14;
-            this.btn_Main_EndRace.Text = "End Race";
-            this.btn_Main_EndRace.UseVisualStyleBackColor = true;
-            this.btn_Main_EndRace.Click += new System.EventHandler(this.btn_Main_EndRace_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(403, 99);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Runner finished lap";
-            // 
-            // dataGridViewGrouper1
-            // 
-            this.dataGridViewGrouper1.DataGridView = this.dataGridView_Laps;
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.FillWeight = 35F;
@@ -342,6 +236,112 @@
             this.OverallHiddenTime.ReadOnly = true;
             this.OverallHiddenTime.Visible = false;
             // 
+            // btn_Main_StartRace
+            // 
+            this.btn_Main_StartRace.Location = new System.Drawing.Point(403, 27);
+            this.btn_Main_StartRace.Name = "btn_Main_StartRace";
+            this.btn_Main_StartRace.Size = new System.Drawing.Size(99, 43);
+            this.btn_Main_StartRace.TabIndex = 5;
+            this.btn_Main_StartRace.Text = "Start Race";
+            this.btn_Main_StartRace.UseVisualStyleBackColor = true;
+            this.btn_Main_StartRace.Click += new System.EventHandler(this.btn_Main_StartRace_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(402, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Number of Laps";
+            // 
+            // lbl_Main_NumOfLaps
+            // 
+            this.lbl_Main_NumOfLaps.AutoSize = true;
+            this.lbl_Main_NumOfLaps.Location = new System.Drawing.Point(467, 157);
+            this.lbl_Main_NumOfLaps.Name = "lbl_Main_NumOfLaps";
+            this.lbl_Main_NumOfLaps.Size = new System.Drawing.Size(13, 13);
+            this.lbl_Main_NumOfLaps.TabIndex = 7;
+            this.lbl_Main_NumOfLaps.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(402, 179);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Lap Length";
+            // 
+            // lbl_Main_LapLength
+            // 
+            this.lbl_Main_LapLength.AutoSize = true;
+            this.lbl_Main_LapLength.Location = new System.Drawing.Point(467, 203);
+            this.lbl_Main_LapLength.Name = "lbl_Main_LapLength";
+            this.lbl_Main_LapLength.Size = new System.Drawing.Size(13, 13);
+            this.lbl_Main_LapLength.TabIndex = 9;
+            this.lbl_Main_LapLength.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(402, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Points Positions";
+            // 
+            // lbl_Main_PointsPositions
+            // 
+            this.lbl_Main_PointsPositions.AutoSize = true;
+            this.lbl_Main_PointsPositions.Location = new System.Drawing.Point(467, 244);
+            this.lbl_Main_PointsPositions.Name = "lbl_Main_PointsPositions";
+            this.lbl_Main_PointsPositions.Size = new System.Drawing.Size(13, 13);
+            this.lbl_Main_PointsPositions.TabIndex = 11;
+            this.lbl_Main_PointsPositions.Text = "0";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(403, 282);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(99, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Number of Runners";
+            // 
+            // lbl_Main_NumberOfRunners
+            // 
+            this.lbl_Main_NumberOfRunners.AutoSize = true;
+            this.lbl_Main_NumberOfRunners.Location = new System.Drawing.Point(467, 305);
+            this.lbl_Main_NumberOfRunners.Name = "lbl_Main_NumberOfRunners";
+            this.lbl_Main_NumberOfRunners.Size = new System.Drawing.Size(13, 13);
+            this.lbl_Main_NumberOfRunners.TabIndex = 13;
+            this.lbl_Main_NumberOfRunners.Text = "0";
+            // 
+            // btn_Main_EndRace
+            // 
+            this.btn_Main_EndRace.Enabled = false;
+            this.btn_Main_EndRace.Location = new System.Drawing.Point(405, 413);
+            this.btn_Main_EndRace.Name = "btn_Main_EndRace";
+            this.btn_Main_EndRace.Size = new System.Drawing.Size(96, 23);
+            this.btn_Main_EndRace.TabIndex = 14;
+            this.btn_Main_EndRace.Text = "End Race";
+            this.btn_Main_EndRace.UseVisualStyleBackColor = true;
+            this.btn_Main_EndRace.Click += new System.EventHandler(this.btn_Main_EndRace_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(403, 99);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(98, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Runner finished lap";
+            // 
+            // dataGridViewGrouper1
+            // 
+            this.dataGridViewGrouper1.DataGridView = this.dataGridView_Laps;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,11 +349,11 @@
             this.ClientSize = new System.Drawing.Size(1060, 450);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btn_Main_EndRace);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbl_Main_NumberOfRunners);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbl_Main_PointsPositions);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbl_Main_LapLength);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbl_Main_NumOfLaps);
             this.Controls.Add(this.label1);
@@ -387,11 +387,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_Main_NumOfLaps;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_Main_LapLength;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_Main_PointsPositions;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_Main_NumberOfRunners;
         private System.Windows.Forms.Button btn_Main_EndRace;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_ID;

@@ -14,7 +14,6 @@ namespace FinishLine
 
     public partial class RunnersView : Form
     {
-
         public RunnersView()
         {
             InitializeComponent();

@@ -60,6 +60,7 @@ namespace FinishLine
                     tBox_FinishLap.Enabled = true;
                     dataGridView_Laps.Enabled = true;
                     Race.StartRace();
+                    PopulateRaceParameters();
                     DisplayLaps();
                     DisplayLeaderboards();
                 }
@@ -87,8 +88,6 @@ namespace FinishLine
         {
             if (e.KeyCode == Keys.Enter)
             {
-                //int lappingRunnerID = int.Parse(tBox_FinishLap.Text);
-
                 RunnerEndsLap(int.Parse(tBox_FinishLap.Text));
                 tBox_FinishLap.Text = string.Empty;
             }
@@ -130,9 +129,6 @@ namespace FinishLine
                 {
                     Race.RunnerLaps[id].Add(DateTime.Now);
                     Race.CheckRaceLeader(Race.Runners[id]);
-
-                    //DisplayLaps();
-                    //DisplayLeaderboards();
 
                     if (Race.CheckIsDone(Race.Runners[id]))
                     {
@@ -181,8 +177,6 @@ namespace FinishLine
                     person.Country, person.Age, person.Gender);
             }
             dataGridView_Laps.Sort(dataGridView_Laps.Columns[0], ListSortDirection.Ascending);
-
-
         }
 
         /// <summary>
@@ -198,9 +192,17 @@ namespace FinishLine
                     Race.GetOverallTime(person.ID), Race.GetOverallHiddenTime(person.ID));
             }
             dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[5], ListSortDirection.Descending);
-            //dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[2], ListSortDirection.Descending);
+        }
 
-
+        /// <summary>
+        /// Populates labels regarding the race parameters.
+        /// </summary>
+        public void PopulateRaceParameters()
+        {
+            lbl_Main_NumOfLaps.Text = Race.NumOfLaps.ToString();
+            lbl_Main_LapLength.Text = Race.LengthOfLap.ToString() + " km";
+            lbl_Main_PointsPositions.Text = Race.PointsPositions.ToString();
+            lbl_Main_NumberOfRunners.Text = Race.Runners.Count.ToString();
         }
 
         /// <summary>
@@ -211,6 +213,7 @@ namespace FinishLine
         private void tStrip_SaveResults_Click(object sender, EventArgs e)
         {
             DataHandler.SaveResults();
+            MessageBox.Show("Data saved successfully");
         }
     }
 }

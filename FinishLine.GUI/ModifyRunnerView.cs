@@ -30,7 +30,6 @@ namespace FinishLine
             LoadComboBox();
             runnerToChange = r;
             LoadRunnerData(r);
-
         }
 
         private Runner runnerToChange = new Runner();
@@ -53,9 +52,7 @@ namespace FinishLine
             {
                 rBtn_Other.Checked = true;
             }
-
             cBox_Country.SelectedValue = r.Country;
-
         }
 
         /// <summary>
@@ -98,7 +95,6 @@ namespace FinishLine
         /// <param name="e"></param>
         private void btn_OK_Click(object sender, EventArgs e)
         {
-
             Race.Runners.Remove(runnerToChange.ID);
             Race.Runners.Add(
             key: (int)numeric_ID.Value,
@@ -122,7 +118,6 @@ namespace FinishLine
         /// <param name="e"></param>
         private void numeric_ID_ValueChanged(object sender, EventArgs e)
         {
-
             int correctID = (int)numeric_ID.Value;
 
             while (!Race.CheckID(correctID))
