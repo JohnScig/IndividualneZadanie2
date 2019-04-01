@@ -17,6 +17,7 @@ namespace FinishLine
         {
             InitializeComponent();
             numeric_PointsPositions.Maximum = Race.Runners.Count();
+            CalculateLength();
         }
 
         private void CalculateLength()

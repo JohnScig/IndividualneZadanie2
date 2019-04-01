@@ -16,27 +16,39 @@ namespace FinishLine
         public MainView()
         {
             InitializeComponent();
-            
+
         }
-        
+
         private void runnersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RunnersView runnersView = new RunnersView();
             runnersView.ShowDialog();
+            if (Race.Runners.Count != 0)
+            {
+                DisplayLaps();
+            }
         }
 
         private void btn_Main_StartRace_Click(object sender, EventArgs e)
         {
             StartRaceView startRaceView = new StartRaceView();
-            startRaceView.ShowDialog();
-            if (startRaceView.DialogResult == DialogResult.OK)
+            if (Race.Runners.Count == 0)
             {
-                btn_Main_StartRace.Enabled = false;
-                btn_Main_EndRace.Enabled = true;
+                MessageBox.Show("There are no runners. Please add some in the Runners dialogue.");
             }
-            Race.StartRace();
-            DisplayLaps();
-            DisplayLeaderboards();
+            else
+            {
+                startRaceView.ShowDialog();
+                if (startRaceView.DialogResult == DialogResult.OK)
+                {
+                    btn_Main_StartRace.Enabled = false;
+                    btn_Main_EndRace.Enabled = true;
+                    Race.StartRace();
+                    DisplayLaps();
+                    DisplayLeaderboards();
+                }
+            }
+
         }
 
         private void btn_Main_EndRace_Click(object sender, EventArgs e)
@@ -54,39 +66,74 @@ namespace FinishLine
                 dataGridView_Laps.Rows.Add(person.ID, person.Name, Race.GetCurrentLap(person.ID),
                     person.Country, person.Age, person.Gender);
             }
-            //dataGridViewGrouper1.SetGroupOn(dataGridView_Laps.Columns[2]);
+
         }
+        //dataGridViewGrouper1.SetGroupOn(dataGridView_Laps.Columns[2]);
 
         public void DisplayLeaderboards()
         {
             dataGridView_Leaderboards.Rows.Clear();
             foreach (Runner person in Race.Runners.Values)
             {
-                dataGridView_Leaderboards.Rows.Add(person.ID, person.Name, 
-                    Race.GetCurrentLap(person.ID), Race.GetLapDeltaToLeader(person.ID).ToString(), Race.GetOverallTime(person.ID));
+                dataGridView_Leaderboards.Rows.Add(person.ID, person.Name,
+                    Race.GetCurrentLap(person.ID), Race.GetLapDeltaToLeader(person.ID).ToString(),
+                    Race.GetOverallTime(person.ID), Race.GetOverallHiddenTime(person.ID));
             }
-            dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[4], ListSortDirection.Ascending);
+            dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[5], ListSortDirection.Descending);
             //dataGridView_Leaderboards.Sort(dataGridView_Leaderboards.Columns[2], ListSortDirection.Descending);
-            
-            
+
+
         }
 
         private void tBox_FinishLap_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                int lappingRunnerID = int.Parse(tBox_FinishLap.Text);
+                //int lappingRunnerID = int.Parse(tBox_FinishLap.Text);
 
-                Race.RunnerLaps[lappingRunnerID].Add(DateTime.Now);
-                Race.CheckRaceLeader(Race.Runners[lappingRunnerID]);
-                //MessageBox.Show(tBox_FinishLap.Text);
+                RunnerLaps(int.Parse(tBox_FinishLap.Text));
+                tBox_FinishLap.Text = string.Empty;
             }
-            DisplayLaps();
-            DisplayLeaderboards();
 
         }
 
-        
+        private void dataGridView_Laps_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                //int lappingRunnerID = (int)dataGridView_Laps[0, e.RowIndex].Value;
+                RunnerLaps((int)dataGridView_Laps[0, e.RowIndex].Value);
+            }
+            catch (ArgumentOutOfRangeException)
+            { }
+        }
 
+        public void RunnerLaps(int id)
+        {
+
+            if (Race.RunnerLaps.Keys.Contains(id))
+            {
+                if (Race.CheckFinishedRace(Race.Runners[id]))
+                {
+                    MessageBox.Show("This racer already finished the race");
+                }
+                
+                Race.RunnerLaps[id].Add(DateTime.Now);
+                Race.CheckRaceLeader(Race.Runners[id]);
+                
+
+                DisplayLaps();
+                DisplayLeaderboards();
+
+                if (Race.CheckEndOfRace())
+                {
+                    MessageBox.Show("The race is over!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wrong ID");
+            }
+        }
     }
 }

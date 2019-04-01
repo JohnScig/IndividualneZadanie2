@@ -61,6 +61,7 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_DeltaTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_OverallTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OverallHiddenTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Laps)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Leaderboards)).BeginInit();
@@ -89,6 +90,7 @@
             this.dataGridView_Laps.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Laps.Size = new System.Drawing.Size(384, 411);
             this.dataGridView_Laps.TabIndex = 1;
+            this.dataGridView_Laps.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_Laps_CellContentClick);
             // 
             // Column_ID
             // 
@@ -137,7 +139,7 @@
             this.runnersToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(947, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -197,13 +199,14 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.Column_DeltaTime,
-            this.Column_OverallTime});
+            this.Column_OverallTime,
+            this.OverallHiddenTime});
             this.dataGridView_Leaderboards.Enabled = false;
             this.dataGridView_Leaderboards.Location = new System.Drawing.Point(508, 26);
             this.dataGridView_Leaderboards.Name = "dataGridView_Leaderboards";
             this.dataGridView_Leaderboards.RowHeadersVisible = false;
             this.dataGridView_Leaderboards.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_Leaderboards.Size = new System.Drawing.Size(427, 411);
+            this.dataGridView_Leaderboards.Size = new System.Drawing.Size(523, 411);
             this.dataGridView_Leaderboards.TabIndex = 4;
             // 
             // btn_Main_StartRace
@@ -346,11 +349,17 @@
             this.Column_OverallTime.HeaderText = "Overall Time";
             this.Column_OverallTime.Name = "Column_OverallTime";
             // 
+            // OverallHiddenTime
+            // 
+            this.OverallHiddenTime.HeaderText = "HiddenTime";
+            this.OverallHiddenTime.Name = "OverallHiddenTime";
+            this.OverallHiddenTime.ReadOnly = true;
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 450);
+            this.ClientSize = new System.Drawing.Size(1060, 450);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btn_Main_EndRace);
             this.Controls.Add(this.label8);
@@ -411,6 +420,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_DeltaTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_OverallTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OverallHiddenTime;
     }
 }
 

@@ -64,7 +64,7 @@
             this.numeric_NoOfLaps.Size = new System.Drawing.Size(120, 20);
             this.numeric_NoOfLaps.TabIndex = 1;
             this.numeric_NoOfLaps.Value = new decimal(new int[] {
-            10,
+            5,
             0,
             0,
             0});
@@ -109,7 +109,7 @@
             this.numeric_PointsPositions.Size = new System.Drawing.Size(120, 20);
             this.numeric_PointsPositions.TabIndex = 3;
             this.numeric_PointsPositions.Value = new decimal(new int[] {
-            10,
+            3,
             0,
             0,
             0});

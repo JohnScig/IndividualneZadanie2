@@ -28,7 +28,7 @@ namespace FinishLine.Core
                     countries.Add(new Country() { Code = dataRecord["CountryCode"], Name = dataRecord["EnglishShortName"] });
                 }
             }
-            //countries.Sort(item=>item.Name);
+            countries.Sort((x, y) => x.Name.CompareTo(y.Name));
             return countries;
         }
 

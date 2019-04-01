@@ -10,6 +10,7 @@ namespace FinishLine.Core
     {
         public static Dictionary<int, Runner> Runners { get; set; } = new Dictionary<int, Runner>();
         public static Dictionary<int, List<DateTime>> RunnerLaps { get; set; } = new Dictionary<int, List<DateTime>>();
+        public static Dictionary<int, List<Runner>> WinningRunners { get; set; } = new Dictionary<int,List<Runner>>();
 
         //{ new Runner[ID] { ID = 12, Name = "John Doe", Age = 25, Gender = "Male", Country = "SK" }
         public static int NumOfLaps { get; set; } = 3;
@@ -60,7 +61,14 @@ namespace FinishLine.Core
 
         public static int GetCurrentLap(int id)
         {
-            return RunnerLaps[id].Count;
+            if (RunnerLaps.ContainsKey(id))
+            {
+                return RunnerLaps[id].Count;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public static object GetLapDeltaToLeader(int id)
@@ -74,12 +82,13 @@ namespace FinishLine.Core
 
                 if (RunnerLaps[Leader.ID].Count == RunnerLaps[id].Count)
                 {
+                    //TimeSpan delta = RunnerLaps[id].Last() - RunnerLaps[id][RunnerLaps.Values.Count-1];
                     TimeSpan delta = RunnerLaps[id].Last() - RunnerLaps[Leader.ID].Last();
                     return delta;
                 }
                 else
                 {
-                    return ("Down " + (RunnerLaps[Leader.ID].Count - RunnerLaps[id].Count) + " laps");
+                    return ("Down " + (RunnerLaps[Leader.ID].Count - RunnerLaps[id].Count) + " lap(s)");
                 }
             }
             else
@@ -100,10 +109,25 @@ namespace FinishLine.Core
             {
                 TimeSpan overallTime = RunnerLaps[id].Last() - Race.StartOfRace;
                 return overallTime;
+            }   
+        }
+
+        public static double GetOverallHiddenTime(int id)
+        {
+
+            if (Race.RunnerLaps[id].Count == 1)
+            {
+                return 0;
             }
+            else
+            {
+                TimeSpan overallHiddenTime = RunnerLaps[id].Last() - Race.StartOfRace;
+                return (Race.RunnerLaps[id].Count) * 100 - overallHiddenTime.TotalHours;
 
-
-            
+                //return ((Race.RunnerLaps[id].Count)*(-1)).ToString() + "," + (RunnerLaps[id].Last() - Race.StartOfRace).ToString();
+                //TimeSpan overallHiddenTime = DateTime.Now - Race.StartOfRace;
+                //return overallHiddenTime;
+            }
         }
 
         public static void StartRace()
@@ -126,8 +150,24 @@ namespace FinishLine.Core
             }
         }
 
+        public static bool CheckFinishedRace(Runner runner)
+        {
+            if (WinningRunners.Keys.Contains(runner.ID))
+            {
+                return true;
+            }
+            
+            return false;
+        }
 
-
+        public static bool CheckEndOfRace()
+        {
+            if (WinningRunners.Count >= NumOfLaps )
+            {
+                return true;
+            }
+            return false;
+        }
 
 
     }
