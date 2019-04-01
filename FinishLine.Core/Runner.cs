@@ -14,7 +14,7 @@ namespace FinishLine.Core
         public string Gender { get; set; }
         public int ID { get; set; }
 
-        public int Laps { get; set; }
+        //public int Laps { get; set; }
 
 
         public void ModifyRunner (string name, string country, int age, string gender, int id)

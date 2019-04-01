@@ -55,9 +55,19 @@
             // numeric_NoOfLaps
             // 
             this.numeric_NoOfLaps.Location = new System.Drawing.Point(131, 7);
+            this.numeric_NoOfLaps.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numeric_NoOfLaps.Name = "numeric_NoOfLaps";
             this.numeric_NoOfLaps.Size = new System.Drawing.Size(120, 20);
             this.numeric_NoOfLaps.TabIndex = 1;
+            this.numeric_NoOfLaps.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numeric_NoOfLaps.ValueChanged += new System.EventHandler(this.numeric_NoOfLaps_ValueChanged);
             // 
             // numeric_LapLength
@@ -67,6 +77,11 @@
             this.numeric_LapLength.Name = "numeric_LapLength";
             this.numeric_LapLength.Size = new System.Drawing.Size(120, 20);
             this.numeric_LapLength.TabIndex = 3;
+            this.numeric_LapLength.Value = new decimal(new int[] {
+            1500,
+            0,
+            0,
+            196608});
             this.numeric_LapLength.ValueChanged += new System.EventHandler(this.numeric_LapLength_ValueChanged);
             // 
             // label2
@@ -93,6 +108,11 @@
             this.numeric_PointsPositions.Name = "numeric_PointsPositions";
             this.numeric_PointsPositions.Size = new System.Drawing.Size(120, 20);
             this.numeric_PointsPositions.TabIndex = 3;
+            this.numeric_PointsPositions.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // label4
             // 

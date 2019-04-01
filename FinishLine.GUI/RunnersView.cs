@@ -33,7 +33,10 @@ namespace FinishLine
             {
                 dataGridView_Runners.Rows.Add(person.ID, person.Name, person.Country, person.Age, person.Gender);
             }
-            dataGridView_Runners.Sort(dataGridView_Runners.Columns[0], new ListSortDirection());
+            dataGridView_Runners.Sort(dataGridView_Runners.Columns[0], ListSortDirection.Ascending);
+            //runnersDataGridGrouper.SetGroupOn(dataGridView_Runners.Columns[3]);
+
+            //dataGridViewGrouper1.SetGroupOn(dataGridView_Laps.Columns[2]);
         }
 
         private void btn_Runners_Delete_Click(object sender, EventArgs e)

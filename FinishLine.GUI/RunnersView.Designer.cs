@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView_Runners = new System.Windows.Forms.DataGridView();
             this.Column_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,6 +41,7 @@
             this.btn_Runners_Close = new System.Windows.Forms.Button();
             this.btn_Runners_Load = new System.Windows.Forms.Button();
             this.btn_Runners_Save = new System.Windows.Forms.Button();
+            this.runnersDataGridGrouper = new Subro.Controls.DataGridViewGrouper(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Runners)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,6 +161,10 @@
             this.btn_Runners_Save.UseVisualStyleBackColor = true;
             this.btn_Runners_Save.Click += new System.EventHandler(this.btn_Runners_Save_Click);
             // 
+            // runnersDataGridGrouper
+            // 
+            this.runnersDataGridGrouper.DataGridView = this.dataGridView_Runners;
+            // 
             // RunnersView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,5 +198,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column_Gender;
         private System.Windows.Forms.Button btn_Runners_Load;
         private System.Windows.Forms.Button btn_Runners_Save;
+        private Subro.Controls.DataGridViewGrouper runnersDataGridGrouper;
     }
 }
