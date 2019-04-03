@@ -61,7 +61,7 @@ namespace FinishLine
         /// </summary>
         public void LoadComboBox()
         {
-            cBox_Country.DataSource = DataHandler.LoadCountries(@"C:\Users\transformer10\source\repos\IndividualneZadanie2\Data\countries.csv");
+            cBox_Country.DataSource = DataHandler.LoadCountries(@"..\..\..\Data\countries.csv");
             cBox_Country.DisplayMember = nameof(Country.Name);
             cBox_Country.ValueMember = nameof(Country.Code).ToString();
         }
